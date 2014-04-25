@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F4431F7190A362400F544AA /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4431F6190A362400F544AA /* Card.m */; };
+		7F443201190A399A00F544AA /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F443200190A399A00F544AA /* PlayingCard.m */; };
 		7F7C9A571908F3F000BCC2DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7C9A561908F3F000BCC2DD /* Foundation.framework */; };
 		7F7C9A591908F3F000BCC2DD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7C9A581908F3F000BCC2DD /* CoreGraphics.framework */; };
 		7F7C9A5B1908F3F000BCC2DD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7C9A5A1908F3F000BCC2DD /* UIKit.framework */; };
@@ -34,6 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F4431F5190A362400F544AA /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Card.h; path = Model/Card.h; sourceTree = "<group>"; };
+		7F4431F6190A362400F544AA /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Card.m; path = Model/Card.m; sourceTree = "<group>"; };
+		7F4431FF190A399A00F544AA /* PlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayingCard.h; path = Model/PlayingCard.h; sourceTree = "<group>"; };
+		7F443200190A399A00F544AA /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCard.m; path = Model/PlayingCard.m; sourceTree = "<group>"; };
 		7F7C9A531908F3F000BCC2DD /* Matchismo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matchismo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F7C9A561908F3F000BCC2DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7F7C9A581908F3F000BCC2DD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -79,6 +85,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F4431F8190A365E00F544AA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7F4431F5190A362400F544AA /* Card.h */,
+				7F4431F6190A362400F544AA /* Card.m */,
+				7F4431FF190A399A00F544AA /* PlayingCard.h */,
+				7F443200190A399A00F544AA /* PlayingCard.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		7F7C9A4A1908F3F000BCC2DD = {
 			isa = PBXGroup;
 			children = (
@@ -112,9 +129,8 @@
 		7F7C9A5C1908F3F000BCC2DD /* Matchismo */ = {
 			isa = PBXGroup;
 			children = (
-				7F7C9A651908F3F000BCC2DD /* CardGameAppDelegate.h */,
-				7F7C9A661908F3F000BCC2DD /* CardGameAppDelegate.m */,
 				7F7C9A681908F3F000BCC2DD /* Main.storyboard */,
+				7F4431F8190A365E00F544AA /* Model */,
 				7F7C9A6B1908F3F000BCC2DD /* CardGameViewController.h */,
 				7F7C9A6C1908F3F000BCC2DD /* CardGameViewController.m */,
 				7F7C9A6E1908F3F000BCC2DD /* Images.xcassets */,
@@ -126,6 +142,8 @@
 		7F7C9A5D1908F3F000BCC2DD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7F7C9A651908F3F000BCC2DD /* CardGameAppDelegate.h */,
+				7F7C9A661908F3F000BCC2DD /* CardGameAppDelegate.m */,
 				7F7C9A5E1908F3F000BCC2DD /* Matchismo-Info.plist */,
 				7F7C9A5F1908F3F000BCC2DD /* InfoPlist.strings */,
 				7F7C9A621908F3F000BCC2DD /* main.m */,
@@ -253,6 +271,8 @@
 				7F7C9A671908F3F000BCC2DD /* CardGameAppDelegate.m in Sources */,
 				7F7C9A6D1908F3F000BCC2DD /* CardGameViewController.m in Sources */,
 				7F7C9A631908F3F000BCC2DD /* main.m in Sources */,
+				7F443201190A399A00F544AA /* PlayingCard.m in Sources */,
+				7F4431F7190A362400F544AA /* Card.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +477,7 @@
 				7F7C9A871908F3F000BCC2DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7F7C9A881908F3F000BCC2DD /* Build configuration list for PBXNativeTarget "MatchismoTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +486,7 @@
 				7F7C9A8A1908F3F000BCC2DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
