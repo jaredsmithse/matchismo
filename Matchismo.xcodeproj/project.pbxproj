@@ -23,6 +23,8 @@
 		7F7C9A781908F3F000BCC2DD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7C9A5A1908F3F000BCC2DD /* UIKit.framework */; };
 		7F7C9A801908F3F000BCC2DD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C9A7E1908F3F000BCC2DD /* InfoPlist.strings */; };
 		7F7C9A821908F3F000BCC2DD /* MatchismoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C9A811908F3F000BCC2DD /* MatchismoTests.m */; };
+		7F87DA8D190F76EB00A6677C /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F87DA8C190F76EB00A6677C /* Deck.m */; };
+		7F87DA90190F7B0A00A6677C /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F87DA8F190F7B0A00A6677C /* PlayingCardDeck.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,10 @@
 		7F7C9A7D1908F3F000BCC2DD /* MatchismoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MatchismoTests-Info.plist"; sourceTree = "<group>"; };
 		7F7C9A7F1908F3F000BCC2DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7F7C9A811908F3F000BCC2DD /* MatchismoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchismoTests.m; sourceTree = "<group>"; };
+		7F87DA8B190F76EB00A6677C /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Deck.h; path = Model/Deck.h; sourceTree = "<group>"; };
+		7F87DA8C190F76EB00A6677C /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Deck.m; path = Model/Deck.m; sourceTree = "<group>"; };
+		7F87DA8E190F7B0A00A6677C /* PlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayingCardDeck.h; path = Model/PlayingCardDeck.h; sourceTree = "<group>"; };
+		7F87DA8F190F7B0A00A6677C /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCardDeck.m; path = Model/PlayingCardDeck.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +98,10 @@
 				7F4431F6190A362400F544AA /* Card.m */,
 				7F4431FF190A399A00F544AA /* PlayingCard.h */,
 				7F443200190A399A00F544AA /* PlayingCard.m */,
+				7F87DA8B190F76EB00A6677C /* Deck.h */,
+				7F87DA8C190F76EB00A6677C /* Deck.m */,
+				7F87DA8E190F7B0A00A6677C /* PlayingCardDeck.h */,
+				7F87DA8F190F7B0A00A6677C /* PlayingCardDeck.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -272,6 +282,8 @@
 				7F7C9A6D1908F3F000BCC2DD /* CardGameViewController.m in Sources */,
 				7F7C9A631908F3F000BCC2DD /* main.m in Sources */,
 				7F443201190A399A00F544AA /* PlayingCard.m in Sources */,
+				7F87DA90190F7B0A00A6677C /* PlayingCardDeck.m in Sources */,
+				7F87DA8D190F76EB00A6677C /* Deck.m in Sources */,
 				7F4431F7190A362400F544AA /* Card.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
