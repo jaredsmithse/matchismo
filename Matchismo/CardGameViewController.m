@@ -26,6 +26,12 @@
     return _game;
 }
 
+- (IBAction)touchNewGameButton:(id)sender
+{
+    self.game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count] usingDeck:[self createDeck]];
+    [self updateUI];
+}
+
 - (NSMutableArray *)createDeck
 {
     return [[PlayingCardDeck alloc] init];
@@ -59,5 +65,6 @@
 {
     return [UIImage imageNamed:card.isChosen ? @"cardfront" : @"cardback"];
 }
+
 
 @end
