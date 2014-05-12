@@ -15,6 +15,8 @@
 @property (nonatomic, strong) CardMatchingGame *game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *gameType;
+@property (nonatomic, readwrite) NSInteger *cardsToMatch;
 
 @end
 
@@ -22,13 +24,15 @@
 
 - (CardMatchingGame *)game
 {
-    if (!_game) _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count] usingDeck:[self createDeck]];
+    if (!_game) _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count] usingDeck:[self createDeck] andCardsToMatch:[self getGameType]];
+    self.cardsToMatch = [self getGameType];
     return _game;
 }
 
 - (IBAction)touchNewGameButton:(id)sender
 {
-    self.game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count] usingDeck:[self createDeck]];
+    self.game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count] usingDeck:[self createDeck] andCardsToMatch:[self getGameType]];
+    self.cardsToMatch = [self getGameType];
     [self updateUI];
 }
 
@@ -54,6 +58,15 @@
         cardButton.enabled = !card.isMatched;
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", (long)self.game.score];
+}
+
+- (NSInteger *)getGameType
+{
+    if ([[_gameType titleForSegmentAtIndex:_gameType.selectedSegmentIndex]  isEqual:@"2 Cards"]) {
+        return 2;
+    } else {
+        return 3;
+    }
 }
 
 - (NSString *)titleForCard:(Card *)card
