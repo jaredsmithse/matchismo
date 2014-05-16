@@ -29,7 +29,7 @@
     return _chosenCards;
 }
 
-- (instancetype)initWithCardCount:(NSUInteger)count usingDeck:(Deck *)deck andCardsToMatch:(NSInteger *)cardsToMatch
+- (instancetype)initWithCardCount:(NSUInteger)count usingDeck:(Deck *)deck andCardsToMatch:(NSInteger)cardsToMatch
 {
     self = [super init];
     self.cardsToMatch = cardsToMatch;
@@ -54,7 +54,6 @@ static const int COST_TO_CHOOSE = 1;
 
 - (void)chooseCardAtIndex:(NSUInteger)index
 {
-    printf("\n\n");
     Card *card = [self cardAtIndex:index];
     if (!card.isMatched) {
         if (card.isChosen) {

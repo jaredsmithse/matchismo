@@ -16,7 +16,7 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *gameType;
-@property (nonatomic, readwrite) NSInteger *cardsToMatch;
+@property (nonatomic, readwrite) NSInteger cardsToMatch;
 
 @end
 
@@ -60,7 +60,7 @@
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", (long)self.game.score];
 }
 
-- (NSInteger *)getGameType
+- (NSInteger)getGameType
 {
     if ([[_gameType titleForSegmentAtIndex:_gameType.selectedSegmentIndex]  isEqual:@"2 Cards"]) {
         return 2;
