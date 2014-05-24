@@ -22,4 +22,9 @@
     return score;
 }
 
+- (NSArray *)getMatches:(NSArray *)otherCards
+{
+    return nil;
+}
+
 @end
