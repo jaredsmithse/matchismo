@@ -10,6 +10,7 @@
 
 @interface CardMatchingGame()
 @property (nonatomic, readwrite) NSInteger score;
+@property (nonatomic, readwrite) NSString* turnMessage;
 @property (nonatomic, readwrite) NSInteger cardsToMatch;
 @property (nonatomic, strong) NSMutableArray *cards; // of Card
 @property (nonatomic, strong) NSMutableArray *chosenCards;
@@ -57,6 +58,7 @@ static const int COST_TO_CHOOSE = 1;
     Card *card = [self cardAtIndex:index];
     if (!card.isMatched) {
         if (card.isChosen) {
+            self.turnMessage = @"already chosen";
             [self.chosenCards removeObject:card];
             card.chosen = NO;
         } else {
@@ -67,11 +69,13 @@ static const int COST_TO_CHOOSE = 1;
                     if ([matchingCards count] > 0) {
                         self.score += matchScore * MATCH_BONUS;
                         card.matched = YES;
+                        [self setCommentaryForTurn:card];
                         for (Card *matchedCard in matchingCards) {
                             matchedCard.matched = YES;
                             [self.chosenCards removeObject:matchedCard];
                         }
                     } else {
+                        [self setCommentaryForTurn:card];
                         self.score -= MISMATCH_PENALTY;
                         if ([self.chosenCards count] >= self.cardsToMatch - 1) {
                             Card *lastCard = [self.chosenCards firstObject];
@@ -87,6 +91,38 @@ static const int COST_TO_CHOOSE = 1;
                 [self.chosenCards addObject:card];
             }
             card.chosen = YES;
+        }
+    }
+}
+
+- (void)setCommentaryForTurn:(Card *)card
+{
+    int matchScore = [card match:self.chosenCards];
+    NSArray *matchingCards = [card getMatches:self.chosenCards];
+    if (matchScore > 0) {
+        switch ([matchingCards count]) {
+            case 1:
+                self.turnMessage = [NSString stringWithFormat:@"%@, %@: %d pts", [[matchingCards objectAtIndex:0] contents], card.contents, (matchScore * MATCH_BONUS)];
+                break;
+            case 2:
+                self.turnMessage = [NSString stringWithFormat:@"%@, %@, %@: %d pts", [[matchingCards objectAtIndex:0] contents], [[matchingCards objectAtIndex:1] contents], card.contents, (matchScore * MATCH_BONUS)];
+                break;
+            default:
+                break;
+        }
+    } else {
+        switch ([self.chosenCards count]) {
+            case 0:
+                self.turnMessage = @"";
+                break;
+            case 1:
+                self.turnMessage = [NSString stringWithFormat:@"%@, %@: -%d",[[self.chosenCards firstObject] contents], card.contents, MISMATCH_PENALTY];
+                break;
+            case 2:
+                self.turnMessage = [NSString stringWithFormat:@"%@, %@, %@: -%d", [[self.chosenCards firstObject] contents], [[self.chosenCards objectAtIndex:1] contents], card.contents, MISMATCH_PENALTY];
+                break;
+            default:
+                break;
         }
     }
 }

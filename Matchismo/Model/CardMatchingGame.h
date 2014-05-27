@@ -13,10 +13,10 @@
 
 // designated initializer
 - (instancetype)initWithCardCount:(NSUInteger)count usingDeck:(Deck *)deck andCardsToMatch:(NSInteger)cardsToMatch;
-
 - (void)chooseCardAtIndex:(NSUInteger)index;
 - (Card *)cardAtIndex:(NSUInteger)index;
 
 @property (nonatomic, readonly) NSInteger score;
+@property (nonatomic, readonly) NSString* turnMessage;
 
 @end

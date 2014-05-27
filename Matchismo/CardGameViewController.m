@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *gameType;
 @property (nonatomic, readwrite) NSInteger cardsToMatch;
+@property (weak, nonatomic) IBOutlet UILabel *turnInfoLabel;
 
 @end
 
@@ -33,6 +34,7 @@
 {
     self.game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count] usingDeck:[self createDeck] andCardsToMatch:[self getGameType]];
     self.cardsToMatch = [self getGameType];
+    self.turnInfoLabel.text = @"";
     [self updateUI];
 }
 
@@ -45,6 +47,7 @@
 {
     NSUInteger cardIndex = [self.cardButtons indexOfObject:sender];
     [self.game chooseCardAtIndex:cardIndex];
+    [self updateCommentaryForPlayAtIndex: cardIndex];
     [self updateUI];
 }
 
@@ -67,6 +70,11 @@
     } else {
         return 3;
     }
+}
+
+- (void)updateCommentaryForPlayAtIndex:(NSUInteger)index
+{
+    self.turnInfoLabel.text = self.game.turnMessage;
 }
 
 - (NSString *)titleForCard:(Card *)card
