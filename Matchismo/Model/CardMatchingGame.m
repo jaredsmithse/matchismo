@@ -58,7 +58,7 @@ static const int COST_TO_CHOOSE = 1;
     Card *card = [self cardAtIndex:index];
     if (!card.isMatched) {
         if (card.isChosen) {
-            self.turnMessage = @"already chosen";
+            self.turnMessage = [NSString stringWithFormat:@"Last card: %@", card.contents];
             [self.chosenCards removeObject:card];
             card.chosen = NO;
         } else {
