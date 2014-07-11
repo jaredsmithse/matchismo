@@ -32,6 +32,7 @@
 
 - (instancetype)initWithCardCount:(NSUInteger)count usingDeck:(Deck *)deck andCardsToMatch:(NSInteger)cardsToMatch
 {
+    printf("we are initializing with a deck\n");
     self = [super init];
     self.cardsToMatch = cardsToMatch;
     if (self) {
@@ -55,6 +56,7 @@ static const int COST_TO_CHOOSE = 1;
 
 - (void)chooseCardAtIndex:(NSUInteger)index
 {
+    printf("I Have clicked a card\n");
     Card *card = [self cardAtIndex:index];
     if (!card.isMatched) {
         if (card.isChosen) {

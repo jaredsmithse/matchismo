@@ -7,7 +7,6 @@
 //
 
 #import "CardGameViewController.h"
-#import "PlayingCardDeck.h"
 #import "CardMatchingGame.h"
 
 @interface CardGameViewController ()
@@ -15,7 +14,6 @@
 @property (nonatomic, strong) CardMatchingGame *game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *gameType;
 @property (nonatomic, readwrite) NSInteger cardsToMatch;
 @property (weak, nonatomic) IBOutlet UILabel *turnInfoLabel;
 
@@ -38,13 +36,14 @@
     [self updateUI];
 }
 
-- (PlayingCardDeck *)createDeck
+- (Deck *)createDeck // abstract
 {
-    return [[PlayingCardDeck alloc] init];
+    return nil;
 }
 
 - (IBAction)touchCardButton:(UIButton *)sender
 {
+    printf("I have clicke on the CARD\n");
     NSUInteger cardIndex = [self.cardButtons indexOfObject:sender];
     [self.game chooseCardAtIndex:cardIndex];
     [self updateCommentaryForPlayAtIndex: cardIndex];
@@ -65,11 +64,11 @@
 
 - (NSInteger)getGameType
 {
-    if ([[_gameType titleForSegmentAtIndex:_gameType.selectedSegmentIndex]  isEqual:@"2 Cards"]) {
+//    if ([[_gameType titleForSegmentAtIndex:_gameType.selectedSegmentIndex]  isEqual:@"2 Cards"]) {
         return 2;
-    } else {
-        return 3;
-    }
+//    } else {
+//        return 3;
+//    }
 }
 
 - (void)updateCommentaryForPlayAtIndex:(NSUInteger)index
